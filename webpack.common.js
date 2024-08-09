@@ -1,5 +1,6 @@
 const path = require('path');
- const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
  module.exports = {
    entry: './src/index.js',
@@ -10,7 +11,7 @@ const path = require('path');
   },
    plugins: [
      new HtmlWebpackPlugin({
-      title: 'Repository Template',
+      title: 'Image Carousel',
        template: './src/index.html',
      }),
    ],

@@ -12,6 +12,7 @@ const previousImgBtn = document.querySelector('.previous-img')
 const navigationDotsContainer = document.querySelector('.navigation-dots')
 
 
+
 const sidiBouSaidImg = new Image()
 sidiBouSaidImg.src = SidiBouSaid
 
@@ -23,9 +24,11 @@ jemImg.src = Jem
 
 const sunsetImg = new Image()
 sunsetImg.src = Sunset
+sunsetImg.classList.add('personal-photo')
 
 const seaImg = new Image()
 seaImg.src = Sea
+seaImg.classList.add('personal-photo')
 
 const slides = [sidiBouSaidImg, jemImg, sousseImg, sunsetImg, seaImg]
 imagesContainer.append(sidiBouSaidImg, sousseImg, sunsetImg, seaImg)
@@ -86,6 +89,7 @@ function previousImg() {
         }
         activeImage.replaceChildren(slides[index])
         changeDotColor(index)
+        resetAutoChageImageTimer()
     }
 }
 previousImgBtn.addEventListener('click', previousImg)
@@ -98,6 +102,7 @@ function changeImgOnDotClick() {
             console.log(index)
             activeImage.replaceChildren(slides[clickedDot])
             changeDotColor(index)
+            resetAutoChageImageTimer()
         }        
     })
 }
