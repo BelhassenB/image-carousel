@@ -61,6 +61,7 @@ function initialState() {
 initialState()  
 
 let index = 0
+let intervalID;
 
 function nextImg() {
     index++
@@ -71,6 +72,7 @@ function nextImg() {
         }
         activeImage.replaceChildren(slides[index])                
         changeDotColor(index)
+        resetAutoChageImageTimer()
     }
 
 }
@@ -84,7 +86,6 @@ function previousImg() {
         }
         activeImage.replaceChildren(slides[index])
         changeDotColor(index)
-        
     }
 }
 previousImgBtn.addEventListener('click', previousImg)
@@ -97,13 +98,15 @@ function changeImgOnDotClick() {
             console.log(index)
             activeImage.replaceChildren(slides[clickedDot])
             changeDotColor(index)
-        }
-        
-        
+        }        
     })
 }
 changeImgOnDotClick()
 
-// setInterval(nextImg, 3000)
 
+function resetAutoChageImageTimer() {
+    clearInterval(intervalID)
+    intervalID = setInterval(nextImg, 5000)
+}
 
+intervalID = setInterval(nextImg, 5000)
